@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,184 +7,437 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black"
-    tools:ignore="hardcodedText"
+    android:background="@color/white1"
     tools:context=".MainActivity">
 
+    <!-- Display Section -->
     <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linear2"
         android:padding="20dp"
-        android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_marginTop="20dp"
-            android:id="@+id/workingtextview"
+        <EditText
+            android:id="@+id/edittext1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text=""
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/white"
-            android:textAlignment="inherit"
             android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@id/resulttextview"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="Suspicious0dp" />
+            android:background="@drawable/textfield"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_marginTop="20dp"
             android:id="@+id/resulttextview"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:text=""
-            android:lines="1"
-            android:maxLines="1"
-            android:textColor="@color/white"
-            android:textAlignment="inherit"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@id/resulttextview"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="Suspicious0dp" />
+            android:textColor="@color/orange"
+            android:textSize="60sp"
+            />
 
     </LinearLayout>
 
+
+    <!-- Calculator Buttons Container (takes the remaining space) -->
     <LinearLayout
-       style="@style/buttonRow"
-        android:layout_marginTop="10dp">
-        <Button
-            android:id="@+id/buttonClear"
-            style="@style/buttonNumber"
-            android:text="AC"
-            android:textColor="@color/red"
-            android:onClick="allClearAction"
-           />
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear1"
+        tools:layout_editor_absoluteX="0dp">
 
-        <Button
-            android:id="@+id/buttonDelete"
-            style="@style/buttonNumber"
-            android:text="Del"
-            android:onClick="backSpaceAction"
-            />
+        <!-- Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+         android:layout_marginBottom="10dp">
 
-        <Button
-            android:id="@+id/buttonDivide"
-            style="@style/buttonOperator"
-            android:text="/"
-            android:onClick="operationAction"
-            />
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonClear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="allClearAction"
+                    android:text="AC"
+                    android:textColor="@color/orange"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonDelete"
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="backSpaceAction"
+                    android:text="Del"
+                    android:textColor="@color/orange"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonDivide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="operationAction"
+                    android:text="/"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="7"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="8"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="9"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonMultiply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="operationAction"
+                    android:text="x"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Row 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="4"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="5"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="6"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonSubtract"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="operationAction"
+                    android:text="-"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="1"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="2"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="3"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="operationAction"
+                    android:text="+"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonDecimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="decimalAction"
+                    android:text="."
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonzero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white1"
+                    android:onClick="numberAction"
+                    android:text="0"
+                    android:textColor="@color/grey"
+                    android:textSize="24sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="2"
+                android:backgroundTint="@color/orange"
+                app:cardCornerRadius="15dp">
+
+                <Button
+                    android:id="@+id/buttonequals"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/orange"
+                    android:onClick="equalsAction"
+                    android:text="="
+                    android:textSize="40sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
     </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        style="@style/buttonRow">
-        <Button
-            android:id="@+id/button7"
-            style="@style/buttonNumber"
-            android:text="7"
-            android:onClick="numberAction"
-            />
 
-        <Button
-            android:id="@+id/button8"
-            style="@style/buttonNumber"
-            android:text="8"
-            android:onClick="numberAction"/>
-        <Button
-            android:id="@+id/button9"
-            style="@style/buttonNumber"
-            android:text="9"
-            android:onClick="numberAction"/>
-        <Button
-            android:id="@+id/buttonMultiply"
-            style="@style/buttonOperator"
-            android:text="x"
-            android:onClick="operationAction"
-            />
-    </LinearLayout>
 
-    <LinearLayout
-        style="@style/buttonRow">
-        <Button
-            android:id="@+id/button4"
-            style="@style/buttonNumber"
-            android:text="4"
-            android:onClick="numberAction"
-            />
 
-        <Button
-            android:id="@+id/button5"
-            style="@style/buttonNumber"
-            android:text="5"
-            android:onClick="numberAction"/>
-        <Button
-            android:id="@+id/button6"
-            style="@style/buttonNumber"
-            android:text="6"
-            android:onClick="numberAction"/>
-        <Button
-            android:id="@+id/buttonSubtract"
-            style="@style/buttonOperator"
-            android:text="-"
-            android:onClick="operationAction"
-            />
-    </LinearLayout>
 
-    <LinearLayout
-        style="@style/buttonRow">
-        <Button
-            android:id="@+id/button1"
-            style="@style/buttonNumber"
-            android:text="1"
-            android:onClick="numberAction"
-            />
 
-        <Button
-            android:id="@+id/button2"
-            style="@style/buttonNumber"
-            android:text="2"
-            android:onClick="numberAction"/>
-        <Button
-            android:id="@+id/button3"
-            style="@style/buttonNumber"
-            android:text="3"
-            android:onClick="numberAction"/>
-        <Button
-            android:id="@+id/buttonAdd"
-            style="@style/buttonOperator"
-            android:text="+"
-            android:onClick="operationAction"
-            />
-    </LinearLayout>
 
-    <LinearLayout
-        style="@style/buttonRow">
-        <Button
-            android:id="@+id/buttonDecimal"
-            style="@style/buttonNumber"
-            android:text="."
-            android:onClick="decimalAction"
-            />
-
-        <Button
-            android:id="@+id/button0"
-            style="@style/buttonNumber"
-            android:text="0"
-            android:onClick="numberAction"/>
-        <Button
-            android:id="@+id/buttonEquals"
-            style="@style/buttonOperator"
-            android:text="="
-            android:textSize="40sp"
-            android:layout_weight="2"
-            android:onClick="equalsAction"
-            android:backgroundTint="@color/red"/>
-
-    </LinearLayout>
-
-</LinearLayout>
