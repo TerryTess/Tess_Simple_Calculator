@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.calculatorapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,22 +17,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.apply {
-            // digits buttons
             listOf(
                 buttonzero, button1, button2, button3, button4,
                 button5, button6, button7, button8, button9
             ).forEach { button ->
                 button.setOnClickListener { numberAction(it) }
             }
-            // operators buttons
-//            buttonDecimal.setOnClickListener { decimalAction(it) }
 
             listOf(buttonAdd, buttonSubtract, buttonMultiply, buttonDivide).forEach { button ->
                 button.setOnClickListener { operationAction(it) }
             }
 
-            // Clear, delete and equals buttons
             buttonClear.setOnClickListener { allClearAction() }
             buttonDelete.setOnClickListener { backSpaceAction() }
             buttonequals.setOnClickListener { equalsAction(it) }
@@ -42,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         val button = view as Button
         val buttonText = button.text.toString()
 
-        // Append the number or decimal point to the input field
         if (buttonText == "." && canAddDecimal) {
             binding.edittext1.append(buttonText)
             canAddDecimal = false
@@ -53,7 +50,6 @@ class MainActivity : AppCompatActivity() {
         canAddOperation = true
     }
 
-    // Handle operation button clicks (+, -, *, /)
     private fun operationAction(view: View) {
         val button = view as Button
         val operator = button.text.toString()
@@ -76,8 +72,7 @@ class MainActivity : AppCompatActivity() {
     fun backSpaceAction() {
         val length = binding.edittext1.length()
         if (length > 0) {
-            binding.edittext1.text.replace(
-                0, length,
+            binding.edittext1.text.replace(   0, length,
                 binding.edittext1.text.subSequence(0, length - 1)
             )
         }

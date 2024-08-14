@@ -10,7 +10,6 @@
     android:background="@color/white1"
     tools:context=".MainActivity">
 
-    <!-- Display Section -->
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="match_parent"
@@ -20,14 +19,25 @@
         android:padding="20dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edittext1"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text=""
-            android:textSize="40sp"
-            android:background="@drawable/textfield"
-            android:layout_marginTop="20dp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="15dp">
+
+            <EditText
+                android:id="@+id/edittext1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text=""
+                android:textSize="40sp"
+                android:background="@drawable/textfield"
+                android:layout_marginTop="20dp"
+                android:padding="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
 
         <TextView
             android:layout_marginTop="20dp"
@@ -42,7 +52,6 @@
     </LinearLayout>
 
 
-    <!-- Calculator Buttons Container (takes the remaining space) -->
     <LinearLayout
         android:id="@+id/linear2"
         android:layout_width="match_parent"
@@ -53,7 +62,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linear1"
         tools:layout_editor_absoluteX="0dp">
 
-        <!-- Row 1 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,7 +126,6 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
-        <!-- Row 2 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -202,7 +209,6 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
-        <!-- Row 3 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
